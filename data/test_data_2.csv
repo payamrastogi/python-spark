@@ -1,4 +1,4 @@
-name, age
-Alice, 21
-Bob, 22
-Cate, 23
+name, age, experience
+Alice, 21, 10
+Bob, 22, 8
+Cate, 23, 4
