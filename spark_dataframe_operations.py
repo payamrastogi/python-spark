@@ -21,7 +21,29 @@ print(df_pyspark.head(2))
 # df_col_name = df_pyspark.select("name")
 # df_col_name.show()
 
-# # to select multiple columns
-from pyspark.sql.functions import col
+# to select multiple columns
 df_col_name_exp = df_pyspark.select('name', 'experience')
 df_col_name_exp.show()
+
+print(df_pyspark.name)
+# check data types
+print(df_pyspark.dtypes)
+
+# check describe
+df_pyspark.describe().show()
+
+# Adding columns in dataframe
+df_col_new_exp = df_pyspark.withColumn('experience after 2 years', df_pyspark['experience']+2)
+df_col_new_exp.show()
+
+df_col_new_exp.select('name', 'experience after 2 years').show()
+
+
+# Dropping a column
+df_col_new_exp = df_col_new_exp.drop('experience after 2 years')
+df_col_new_exp.show()
+
+
+# renaming a column
+
+
