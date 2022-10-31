@@ -45,5 +45,5 @@ df_col_new_exp.show()
 
 
 # renaming a column
-
+df_pyspark.withColumnRenamed('name', 'new name').show()
 

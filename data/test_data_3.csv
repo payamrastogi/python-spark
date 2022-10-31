@@ -1,0 +1,10 @@
+name,age,experience,salary
+alice,31,10,30000
+bob,30,8,25000
+cate,29,4,20000
+dave,24,3,20000
+ellen,21,1,15000
+fiona,23,2,18000
+george,,,40000
+,34,10,38000
+,36,,
