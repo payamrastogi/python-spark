@@ -1,4 +1,7 @@
 from pyspark.sql import SparkSession
+
+from spark_dataframe_operations import df_pyspark
+
 spark = SparkSession.builder.appName("python-spark").getOrCreate()
 
 # reading csv file
@@ -35,3 +38,13 @@ df_filled_column_with_null.show()
 
 df_filled_age_with_null = df_pyspark.na.fill('missing value', ['age'])
 df_filled_age_with_null.show()
+
+# replacing null with mean using imputer function
+from pyspark.ml.feature import Imputer
+imputer = Imputer(
+    inputCols=['age', 'experience'],
+    outputCols=["{}_imputed".format(c) for c in ['age', 'experience']]
+).setStrategy("mean") # median
+
+imputer.fit(df_pyspark).transform(df_pyspark).show()
+
